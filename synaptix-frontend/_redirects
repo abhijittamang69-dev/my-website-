@@ -1,0 +1,3 @@
+/api/*  https://synaptix-website2-1.onrender.com/api/:splat  200
+/payment/success  /products.html  200
+/payment/failed   /products.html  200

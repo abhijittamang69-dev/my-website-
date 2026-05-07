@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Installation | Synaptix Solutions Ltd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Logo Styles */
+        .logo-img {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        /* Profile Photo Styles */
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Card Avatar Image */
+        .card-avatar-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Portfolio Image Styles */
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-icon-fallback {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        /* Hero Social Links */
+        .hero-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .hero-social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Footer social links enhancement */
+        .social-links a {
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Synaptix Solutions Ltd Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-icon" style="display:none;"><i class="fas fa-bolt"></i></div>
+                <span>Synaptix</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="booking.html">Book Installation</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="index.html#home" class="mobile-link">Home</a></li>
+            <li><a href="index.html#about" class="mobile-link">About</a></li>
+            <li><a href="index.html#services" class="mobile-link">Services</a></li>
+            <li><a href="products.html" class="mobile-link">Products</a></li>
+            <li><a href="booking.html" class="mobile-link">Book Installation</a></li>
+            <li><a href="index.html#portfolio" class="mobile-link">Portfolio</a></li>
+            <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Booking Hero -->
+    <section class="hero" style="min-height: 45vh; padding-top: 10rem;">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-container" style="grid-template-columns: 1fr; text-align: center;">
+            <div class="hero-content">
+                <h1 class="animate-fadeInUp">
+                    Book Your <span class="gradient-text">Installation</span>
+                </h1>
+                <p class="hero-subtitle animate-fadeInUp delay-1" style="margin: 0 auto 2rem;">
+                    Schedule a professional installation for your security system. Choose your preferred date and time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" style="padding-top: 2rem;">
+        <div class="section-container">
+            <div class="booking-grid">
+                <!-- Booking Form -->
+                <div class="booking-form-wrapper animate-slideInLeft">
+                    <div class="contact-form" style="padding: 2.5rem;">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                            <i class="fas fa-calendar-check" style="color: var(--accent);"></i> Schedule Installation
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">Fill in the details below and we will confirm your booking.</p>
+
+                        <form id="bookingForm" onsubmit="submitBooking(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Full Name *</label>
+                                    <input type="text" id="bookName" placeholder="Your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number *</label>
+                                    <input type="tel" id="bookPhone" placeholder="98XXXXXXXX" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="bookEmail" placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Installation Address *</label>
+                                <textarea id="bookAddress" placeholder="Full address where installation is needed" required></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Service Type *</label>
+                                    <select id="bookService" required>
+                                        <option value="">Select service...</option>
+                                        <option value="cctv">CCTV Installation</option>
+                                        <option value="access">Access Control System</option>
+                                        <option value="egate">E-Gate / Automatic Gate</option>
+                                        <option value="alarm">Alarm System</option>
+                                        <option value="combo">Complete Security Package</option>
+                                        <option value="other">Other / Custom</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Property Type *</label>
+                                    <select id="bookProperty" required>
+                                        <option value="">Select type...</option>
+                                        <option value="home">Home / Residence</option>
+                                        <option value="office">Office / Commercial</option>
+                                        <option value="factory">Factory / Warehouse</option>
+                                        <option value="shop">Shop / Retail</option>
+                                        <option value="apartment">Apartment Complex</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Preferred Date *</label>
+                                    <input type="date" id="bookDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Preferred Time *</label>
+                                    <select id="bookTime" required>
+                                        <option value="">Select time...</option>
+                                        <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                                        <option value="afternoon">Afternoon (12:00 PM - 3:00 PM)</option>
+                                        <option value="evening">Evening (3:00 PM - 6:00 PM)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Additional Notes</label>
+                                <textarea id="bookNotes" placeholder="Any specific requirements, number of cameras needed, gate size, etc."></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-calendar-check"></i> Confirm Booking
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Booking Info -->
+                <div class="booking-info animate-slideInRight">
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem;">
+                        <i class="fas fa-info-circle" style="color: var(--accent);"></i> How It Works
+                    </h3>
+
+                    <div class="booking-steps">
+                        <div class="booking-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Fill the Form</h4>
+                                <p>Provide your details, address, and preferred installation date.</p>
+                            </div>
+                        </div>
+                        <div class="booking-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>We Confirm</h4>
+                                <p>Our team will call you within 24 hours to confirm your booking.</p>
+                            </div>
+                        </div>
+                        <div class="booking-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Site Visit</h4>
+                                <p>Our technician visits your location for assessment and measurement.</p>
+                            </div>
+                        </div>
+                        <div class="booking-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Installation</h4>
+                                <p>Professional installation on your scheduled date with full setup.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="booking-contact-box">
+                        <h4><i class="fas fa-phone-alt"></i> Need Help?</h4>
+                        <p>Call us directly to book or ask questions:</p>
+                        <a href="tel:+97798XXXXXXXX" class="booking-phone">+977-9865057546</a>
+                        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">Sun - Fri: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Synaptix Solutions Ltd Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-icon" style="display:none;"><i class="fas fa-bolt"></i></div>
+                <span>Synaptix</span>
+            </a>
+                <p>Synaptix Solutions Ltd — Your trusted partner for modern web design and professional security systems in Nepal.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/synaptixsolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/synaptixsolutions" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/synaptix-solutions-ltd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/9779865057546" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Web Services</h4>
+                <ul>
+                    <li><a href="index.html#services">Website Design</a></li>
+                    <li><a href="index.html#services">Web Development</a></li>
+                    <li><a href="index.html#services">E-Commerce</a></li>
+                    <li><a href="index.html#services">SEO Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Security Services</h4>
+                <ul>
+                    <li><a href="index.html#services">CCTV Systems</a></li>
+                    <li><a href="index.html#services">Access Control</a></li>
+                    <li><a href="index.html#services">E-Gate Solutions</a></li>
+                    <li><a href="index.html#services">Alarm Systems</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="booking.html">Book Installation</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Synaptix Solutions Ltd. All rights reserved.</p>
+            <p>Designed & Developed by Abhijit Tamang</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Booking Success Modal -->
+    <div class="success-overlay" id="bookingSuccessOverlay"></div>
+    <div class="success-modal" id="bookingSuccessModal">
+        <div class="success-icon"><i class="fas fa-calendar-check"></i></div>
+        <h3>Booking Confirmed!</h3>
+        <p>Thank you for booking with Synaptix Solutions. Our team will contact you within 24 hours to confirm your installation.</p>
+        <p class="success-order" id="bookingRefId">Booking Ref: BK-XXXXX</p>
+        <button class="btn btn-primary" onclick="closeBookingSuccess()">
+            <i class="fas fa-home"></i> Back to Home
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Set minimum date to today
+        document.getElementById('bookDate').min = new Date().toISOString().split('T')[0];
+
+        const API_BASE = 'https://synaptix-website2-1.onrender.com/api';
+
+        async function submitBooking(e) {
+            e.preventDefault();
+
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+
+            const bookingData = {
+                name: document.getElementById('bookName').value.trim(),
+                phone: document.getElementById('bookPhone').value.trim(),
+                email: document.getElementById('bookEmail').value.trim(),
+                address: document.getElementById('bookAddress').value.trim(),
+                service: document.getElementById('bookService').value,
+                property: document.getElementById('bookProperty').value,
+                date: document.getElementById('bookDate').value,
+                time: document.getElementById('bookTime').value,
+                notes: document.getElementById('bookNotes').value.trim()
+            };
+
+            try {
+                const res = await fetch(`${API_BASE}/bookings`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(bookingData)
+                });
+                const result = await res.json();
+
+                if (result.success) {
+                    document.getElementById('bookingRefId').textContent = 'Booking Ref: ' + result.data.id;
+                    document.getElementById('bookingSuccessOverlay').classList.add('active');
+                    document.getElementById('bookingSuccessModal').classList.add('active');
+                    document.getElementById('bookingForm').reset();
+                } else {
+                    alert('Error: ' + (result.message || 'Failed to create booking'));
+                }
+            } catch (error) {
+                console.error('Booking error:', error);
+                alert('Network error. Please check your connection and try again.');
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        function closeBookingSuccess() {
+            document.getElementById('bookingSuccessOverlay').classList.remove('active');
+            document.getElementById('bookingSuccessModal').classList.remove('active');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: synaptix-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        value: Abhijit@2
+      - key: KHALTI_SECRET_KEY
+        sync: false
+      - key: KHALTI_PUBLIC_KEY
+        sync: false
+      - key: KHALTI_API_URL
+        value: https://dev.khalti.com/api/v2
+      - key: ESEWA_MERCHANT_ID
+        value: EPAYTEST
+      - key: ESEWA_SECRET_KEY
+        sync: false
+      - key: ESEWA_API_URL
+        value: https://rc-epay.esewa.com.np
+      - key: FRONTEND_URL
+        value: https://synaptix-api.onrender.com

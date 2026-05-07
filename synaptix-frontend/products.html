@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Synaptix Solutions Ltd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Logo Styles */
+        .logo-img {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        /* Profile Photo Styles */
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Card Avatar Image */
+        .card-avatar-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Portfolio Image Styles */
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-icon-fallback {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        /* Hero Social Links */
+        .hero-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .hero-social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Footer social links enhancement */
+        .social-links a {
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Synaptix Solutions Ltd Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-icon" style="display:none;"><i class="fas fa-bolt"></i></div>
+                <span>Synaptix</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="booking.html">Book Installation</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="#" class="cart-icon" onclick="toggleCart(event)" title="Shopping Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="index.html#home" class="mobile-link">Home</a></li>
+            <li><a href="index.html#about" class="mobile-link">About</a></li>
+            <li><a href="index.html#services" class="mobile-link">Services</a></li>
+            <li><a href="products.html" class="mobile-link">Products</a></li>
+            <li><a href="booking.html" class="mobile-link">Book Installation</a></li>
+            <li><a href="index.html#portfolio" class="mobile-link">Portfolio</a></li>
+            <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Products Hero -->
+    <section class="hero" style="min-height: 50vh; padding-top: 10rem;">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-container" style="grid-template-columns: 1fr; text-align: center;">
+            <div class="hero-content">
+                <h1 class="animate-fadeInUp">
+                    Our <span class="gradient-text">Security</span><br>
+                    Products
+                </h1>
+                <p class="hero-subtitle animate-fadeInUp delay-1" style="margin: 0 auto 2rem;">
+                    Premium security hardware available for purchase and professional installation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" style="padding-top: 2rem;">
+        <div class="section-container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products loaded dynamically from database -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: var(--bg-secondary); text-align: center;">
+        <div class="section-container">
+            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 1rem;">Need Custom Security Solution?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Contact us for bulk orders, custom packages, or installation services.</p>
+            <a href="index.html#contact" class="btn btn-primary"><i class="fas fa-phone"></i> Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Synaptix Solutions Ltd Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-icon" style="display:none;"><i class="fas fa-bolt"></i></div>
+                <span>Synaptix</span>
+            </a>
+                <p>Synaptix Solutions Ltd — Your trusted partner for modern web design and professional security systems in Nepal.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/synaptixsolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/synaptixsolutions" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/synaptix-solutions-ltd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/9779865057546" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Web Services</h4>
+                <ul>
+                    <li><a href="index.html#services">Website Design</a></li>
+                    <li><a href="index.html#services">Web Development</a></li>
+                    <li><a href="index.html#services">E-Commerce</a></li>
+                    <li><a href="index.html#services">SEO Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Security Services</h4>
+                <ul>
+                    <li><a href="index.html#services">CCTV Systems</a></li>
+                    <li><a href="index.html#services">Access Control</a></li>
+                    <li><a href="index.html#services">E-Gate Solutions</a></li>
+                    <li><a href="index.html#services">Alarm Systems</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="booking.html">Book Installation</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Synaptix Solutions Ltd. All rights reserved.</p>
+            <p>Designed & Developed by Abhijit Tamang</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Cart Modal -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart(event)"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="cart-close" onclick="toggleCart(event)"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">NPR 0</span>
+            </div>
+            <button class="checkout-btn" onclick="openCheckout()">
+                <i class="fas fa-credit-card"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-header">
+            <h3><i class="fas fa-credit-card"></i> Checkout</h3>
+            <button class="checkout-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="checkout-body">
+            <div class="checkout-summary" id="checkoutSummary"></div>
+            <form class="checkout-form" id="checkoutForm" onsubmit="processOrder(event)">
+                <h4>Customer Details</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="custName" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="custPhone" placeholder="98XXXXXXXX" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" id="custEmail" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address *</label>
+                    <textarea id="custAddress" placeholder="Full delivery address in Nepal" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Order Notes (Optional)</label>
+                    <textarea id="custNotes" placeholder="Any special instructions..."></textarea>
+                </div>
+
+                <h4 style="margin-top: 1.5rem;">Payment Method</h4>
+                <div class="payment-methods">
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="cod" checked>
+                        <div class="payment-box">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Cash on Delivery</span>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="khalti">
+                        <div class="payment-box">
+                            <i class="fas fa-wallet"></i>
+                            <span>Khalti</span>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="esewa">
+                        <div class="payment-box">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>eSewa</span>
+                        </div>
+                    </label>
+                </div>
+
+                <button type="submit" class="checkout-submit">
+                    <i class="fas fa-lock"></i> Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="success-overlay" id="successOverlay"></div>
+    <div class="success-modal" id="successModal">
+        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <h3>Order Placed Successfully!</h3>
+        <p>Thank you for your purchase. We will contact you shortly to confirm your order.</p>
+        <p class="success-order" id="successOrderId">Order #: SYN-XXXXX</p>
+        <button class="btn btn-primary" onclick="closeSuccess()">
+            <i class="fas fa-home"></i> Continue Shopping
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // ===== CART SYSTEM =====
+        let cart = JSON.parse(localStorage.getItem('synaptix_cart')) || [];
+
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function changeQty(productId, delta) {
+            const input = document.getElementById('qty-' + productId);
+            let val = parseInt(input.value) + delta;
+            if (val < 1) val = 1;
+            if (val > 10) val = 10;
+            input.value = val;
+        }
+
+        function addToCart(productId) {
+            const card = document.querySelector('[data-id="' + productId + '"]');
+            const name = card.getAttribute('data-name');
+            const price = parseInt(card.getAttribute('data-price'));
+            const qty = parseInt(document.getElementById('qty-' + productId).value);
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ id: productId, name: name, price: price, qty: qty });
+            }
+
+            localStorage.setItem('synaptix_cart', JSON.stringify(cart));
+            updateCartCount();
+            showCartNotification(name + ' added to cart!');
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('synaptix_cart', JSON.stringify(cart));
+            renderCart();
+            updateCartCount();
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="cart-empty">Your cart is empty</p>';
+                document.getElementById('cartTotal').textContent = 'NPR 0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+                html += '<div class="cart-item">' +
+                    '<div class="cart-item-info">' +
+                        '<h4>' + item.name + '</h4>' +
+                        '<p>NPR ' + item.price.toLocaleString() + ' x ' + item.qty + '</p>' +
+                    '</div>' +
+                    '<div class="cart-item-actions">' +
+                        '<span class="cart-item-total">NPR ' + subtotal.toLocaleString() + '</span>' +
+                        '<button onclick="removeFromCart(\'' + item.id + '\')" title="Remove"><i class="fas fa-trash"></i></button>' +
+                    '</div>' +
+                '</div>';
+            container.innerHTML = html;
+            document.getElementById('cartTotal').textContent = 'NPR ' + total.toLocaleString();
+        }
+
+        function toggleCart(e) {
+            if (e) e.preventDefault();
+            document.getElementById('cartOverlay').classList.toggle('active');
+            document.getElementById('cartModal').classList.toggle('active');
+            renderCart();
+        }
+
+        function showCartNotification(msg) {
+            const notif = document.createElement('div');
+            notif.className = 'cart-notification';
+            notif.innerHTML = '<i class="fas fa-check-circle"></i> ' + msg;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 2500);
+        }
+
+        // ===== CHECKOUT =====
+        function openCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            toggleCart();
+            document.getElementById('checkoutOverlay').classList.add('active');
+            document.getElementById('checkoutModal').classList.add('active');
+
+            let summary = '<h4>Order Summary</h4>';
+            let total = 0;
+            cart.forEach(item => {
+                const sub = item.price * item.qty;
+                total += sub;
+                summary += '<div class="checkout-item"><span>' + item.name + ' x' + item.qty + '</span><span>NPR ' + sub.toLocaleString() + '</span></div>';
+            });
+            summary += '<div class="checkout-item checkout-grand"><span>Grand Total</span><span>NPR ' + total.toLocaleString() + '</span></div>';
+            document.getElementById('checkoutSummary').innerHTML = summary;
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutOverlay').classList.remove('active');
+            document.getElementById('checkoutModal').classList.remove('active');
+        }
+
+        const API_BASE = 'https://synaptix-website2-1.onrender.com/api";
+
+        async function processOrder(e) {
+            e.preventDefault();
+            const payment = document.querySelector('input[name="payment"]:checked').value;
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const email = document.getElementById('custEmail').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const notes = document.getElementById('custNotes').value.trim();
+
+            if (!name || !phone || !email || !address) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const orderId = 'SYN-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+
+            const orderData = {
+                id: orderId,
+                customer: { name, phone, email, address, notes },
+                items: cart.map(item => ({ id: item.id, name: item.name, price: item.price, qty: item.qty, icon: item.icon || 'fa-box' })),
+                total: total,
+                paymentMethod: payment,
+                notes: notes
+            };
+
+            try {
+                // 1. Save order to backend
+                const orderRes = await fetch(`${API_BASE}/orders`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderData)
+                });
+                const orderResult = await orderRes.json();
+
+                if (!orderResult.success) {
+                    throw new Error('Failed to create order');
+                }
+
+                // 2. Handle payment
+                if (payment === 'khalti') {
+                    // Initiate Khalti payment
+                    const khaltiRes = await fetch(`${API_BASE}/payment/khalti/initiate`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            amount: total,
+                            orderId: orderId,
+                            orderName: 'Synaptix Order ' + orderId,
+                            customerName: name,
+                            customerEmail: email,
+                            customerPhone: phone
+                        })
+                    });
+                    const khaltiData = await khaltiRes.json();
+
+                    if (khaltiData.success && khaltiData.paymentUrl) {
+                        // Redirect to Khalti payment page
+                        window.location.href = khaltiData.paymentUrl;
+                        return;
+                    } else {
+                        throw new Error('Khalti payment initiation failed');
+                    }
+
+                } else if (payment === 'esewa') {
+                    // Initiate eSewa payment
+                    const esewaRes = await fetch(`${API_BASE}/payment/esewa/initiate`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            amount: total,
+                            orderId: orderId,
+                            orderName: 'Synaptix Order ' + orderId
+                        })
+                    });
+                    const esewaData = await esewaRes.json();
+
+                    if (esewaData.success && esewaData.esewaConfig) {
+                        // Create and submit eSewa form
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = 'https://rc-epay.esewa.com.np/api/epay/main/v2/form';
+
+                        const config = esewaData.esewaConfig;
+                        Object.keys(config).forEach(key => {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            input.value = config[key];
+                            form.appendChild(input);
+                        });
+
+                        document.body.appendChild(form);
+                        form.submit();
+                        return;
+                    } else {
+                        throw new Error('eSewa payment initiation failed');
+                    }
+
+                } else {
+                    // Cash on Delivery - just show success
+                    cart = [];
+                    localStorage.setItem('synaptix_cart', JSON.stringify(cart));
+                    updateCartCount();
+                    closeCheckout();
+
+                    document.getElementById('successOrderId').textContent = 'Order #: ' + orderId;
+                    document.getElementById('successOverlay').classList.add('active');
+                    document.getElementById('successModal').classList.add('active');
+                }
+
+            } catch (error) {
+                console.error('Order error:', error);
+                alert('Error processing order: ' + error.message);
+            }
+        }
+
+        function closeSuccess() {
+            document.getElementById('successOverlay').classList.remove('active');
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        // Load products from database
+        async function loadProducts() {
+            try {
+                console.log('Loading products from:', `${API_BASE}/products`);
+                const res = await fetch(`${API_BASE}/products`);
+
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+
+                const data = await res.json();
+                console.log('Products loaded:', data);
+
+                const grid = document.getElementById('productsGrid');
+
+                if (!data.success || !data.data || data.data.length === 0) {
+                    grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);"><i class="fas fa-box-open" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>No products available. Add products from the admin panel.</div>';
+                    return;
+                }
+
+                grid.innerHTML = data.data.map((product, index) => `
+                    <div class="product-card animate-fadeInUp ${index % 3 === 1 ? 'delay-1' : index % 3 === 2 ? 'delay-2' : ''}" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">
+                        <div class="product-image">
+                            <i class="fas ${product.icon || 'fa-box'}"></i>
+                            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                        </div>
+                        <div class="product-content">
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="product-meta">
+                                <span class="product-price">NPR ${product.price.toLocaleString()}</span>
+                                <span class="product-stock">
+                                    <i class="fas ${product.inStock !== false ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+                                    ${product.inStock !== false ? 'In Stock' : 'Out of Stock'}
+                                </span>
+                            </div>
+                            <div class="product-qty">
+                                <button class="qty-btn" onclick="changeQty('${product.id}', -1)">-</button>
+                                <input type="number" class="qty-input" id="qty-${product.id}" value="1" min="1" max="10" readonly>
+                                <button class="qty-btn" onclick="changeQty('${product.id}', 1)">+</button>
+                            </div>
+                            <button class="product-btn add-to-cart" onclick="addToCart('${product.id}')" ${product.inStock === false ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : ''}>
+                                <i class="fas fa-cart-plus"></i> ${product.inStock !== false ? 'Add to Cart' : 'Out of Stock'}
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                console.error('Load products error:', error);
+                document.getElementById('productsGrid').innerHTML = 
+                    '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">' +
+                    '<i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem; display: block; color: var(--accent-secondary);"></i>' +
+                    '<strong>Backend Not Connected</strong><br><br>' +
+                    'Please make sure:<br>' +
+                    '1. Backend server is running (npm start)<br>' +
+                    '2. MongoDB is connected<br>' +
+                    '3. API_BASE URL is correct<br><br>' +
+                    '<small>Error: ' + error.message + '</small>' +
+                    '</div>';
+            }
+        }
+
+        // Init
+        loadProducts();
+        updateCartCount();
+    </script>
+</body>
+</html>
