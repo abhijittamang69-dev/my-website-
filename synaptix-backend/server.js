@@ -48,8 +48,8 @@ const corsOptions = {
       'http://localhost:5000',
       'http://127.0.0.1:3000',
       'http://127.0.0.1:5000',
-      'https://synaptixsolutions.com',
-      'https://www.synaptixsolutions.com'
+      'https://synaptixsolutions.vercel.app',
+      'https://www.synaptixsolutions.vercel.app'
     ].filter(Boolean);
 
     // Allow requests with no origin (mobile apps, curl, etc.)
@@ -208,7 +208,7 @@ const server = app.listen(PORT, () => {
 ║   Server running on port: ${PORT}${' '.repeat(32 - PORT.toString().length)}║
 ║   Environment: ${(process.env.NODE_ENV || 'development').padEnd(39)}║
 ║   API Base: http://localhost:${PORT}/api${' '.repeat(21 - PORT.toString().length)}║
-║                                                              ║
+║    API Base:https://my-website-vxa6.onrender.com                                                           ║
 ║   Available Endpoints:                                       ║
 ║   • GET  /api/health        - Health check                   ║
 ║   • POST /api/auth/login    - User login                     ║
